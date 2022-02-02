@@ -19,3 +19,19 @@ services:
     restart: unless-stopped
     volumes:
       - /home/ubuntu/files/root/websites/${APP_DOMAIN}:/var/www/html
+    labels:
+      - "traefik.enable=true"
+      - "traefik.docker.network=traefik_default"
+      # SSL redirect requires a separate router (https://github.com/containous/traefik/issues/4688#issuecomment-477800500)
+      - "traefik.http.routers.${APP_NAME}.entryPoints=web"
+      - "traefik.http.routers.${APP_NAME}.rule=host(`${APP_DOMAIN}`)"
+      - "traefik.http.middlewares.${APP_NAME}-redirect.redirectScheme.scheme=https"
+      - "traefik.http.middlewares.${APP_NAME}-redirect.redirectScheme.permanent=true"
+      - "traefik.http.routers.${APP_NAME}.middlewares=${APP_NAME}-redirect"
+      # SSL endpoint
+      - "traefik.http.routers.${APP_NAME}-https.entryPoints=websecure"
+      - "traefik.http.routers.${APP_NAME}-https.rule=host(`${APP_DOMAIN}`)"
+      - "traefik.http.routers.${APP_NAME}-https.tls=true"
+      - "traefik.http.routers.${APP_NAME}-https.tls.certResolver=production"
+      - "traefik.http.routers.${APP_NAME}-https.service=${APP_NAME}-https"
+      - "traefik.http.services.${APP_NAME}-https.loadBalancer.server.port=80"
