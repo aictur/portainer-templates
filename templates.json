@@ -24,8 +24,8 @@
         },
         {
           "name": "APP_ENV",
-          "label": "Debug mode",
-          "description": "Debug mode",
+          "label": "App env",
+          "description": "App env",
           "select": [
             {
               "text": "Local",
