@@ -10,7 +10,7 @@ services:
       MYSQL_PASSWORD: '${DB_PASSWORD}'
       MYSQL_ALLOW_EMPTY_PASSWORD: 'yes'
     volumes:
-      - /home/ubuntu/files/databases/${APP_DOMAIN}:/var/lib/mysql
+      - /home/ubuntu/files/root/databases/${APP_DOMAIN}:/var/lib/mysql
     healthcheck:
       test: ["CMD", "mysqladmin", "ping"]
   nginx:
@@ -18,4 +18,4 @@ services:
     platform: linux/arm64/v8
     restart: unless-stopped
     volumes:
-      - /home/ubuntu/files/websites/${APP_DOMAIN}:/var/www/html
+      - /home/ubuntu/files/root/websites/${APP_DOMAIN}:/var/www/html
