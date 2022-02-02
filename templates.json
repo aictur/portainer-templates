@@ -69,7 +69,7 @@
           "name": "DB_PORT",
           "label": "Database port",
           "description": "Database port",
-          "default": 3306
+          "default": "3306"
         },
         {
           "name": "APP_DEBUG",
