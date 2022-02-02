@@ -13,7 +13,7 @@ services:
     healthcheck:
       test: ["CMD", "mysqladmin", "ping"]
   nginx:
-    image: nginx:alpine
+    image: nginx:latest
     restart: unless-stopped
     volumes:
       - /home/ubuntu/files/websites/${APP_DOMAIN}:/var/www/html
