@@ -14,6 +14,7 @@ services:
       test: ["CMD", "mysqladmin", "ping"]
   nginx:
     image: nginx:latest
+    platform: linux/arm64/v8
     restart: unless-stopped
     volumes:
       - /home/ubuntu/files/websites/${APP_DOMAIN}:/var/www/html
