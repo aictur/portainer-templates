@@ -10,7 +10,7 @@
         "webserver"
       ],
       "platform": "linux",
-      "logo": "",
+      "logo": "https://pbs.twimg.com/profile_images/1163911054788833282/AcA2LnWL_400x400.jpg",
       "env": [
         {
           "name": "APP_DOMAIN",
