@@ -1,99 +1,104 @@
-[
-  {
-    "type": 2,
-    "title": "Laravel app",
-    "description": "Laravel app",
-    "note": "Deploys a Laravel app.",
-    "categories": ["webserver"],
-    "platform": "linux",
-    "logo": "",
-    "env": [
-      {
-        "name": "APP_DOMAIN",
-        "label": "Domain",
-        "description": "App domain"
-      },
-      {
-        "name": "APP_NAME",
-        "label": "App name",
-        "description": "App name"
-      },
-      {
-        "name": "APP_ENV",
-        "label": "Debug mode",
-        "description": "Debug mode",
-        "select": [
-          {
-            "text": "Local",
-            "value": "local",
-            "default": true
-          },
-          {
-            "text": "Production",
-            "value": "production"
-          }
-        ]
-      },
-      {
-        "name": "DB_DATABASE",
-        "label": "Database name",
-        "description": "Database name"
-      },
-      {
-        "name": "DB_USERNAME",
-        "label": "Database user",
-        "description": "Database user"
-      },
-      {
-        "name": "DB_PASSWORD",
-        "label": "Database pass",
-        "description": "Database pass"
-      },
-      {
-        "name": "DB_CONNECTION",
-        "label": "Database type",
-        "description": "Database type",
-        "default": "mysql"
-      },
-      {
-        "name": "DB_HOST",
-        "label": "Database host",
-        "description": "Database host",
-        "default": "database"
-      },
-      {
-        "name": "DB_PORT",
-        "label": "Database port",
-        "description": "Database port",
-        "default": 3306
-      },
-      {
-        "name": "APP_DEBUG",
-        "label": "Debug mode",
-        "description": "Debug mode",
-        "select": [
-          {
-            "text": "Enabled",
-            "value": "true",
-            "default": true
-          },
-          {
-            "text": "Disabled",
-            "value": "false"
-          }
-        ]
-      },
-      {
-        "name": "APP_URL",
-        "label": "App URL",
-        "description": "App URL",
-        "preset": true,
-        "default": "https://${APP_DOMAIN}"
+{
+  "version": "2",
+  "templates": [
+    {
+      "type": 2,
+      "title": "Laravel app",
+      "description": "Laravel app",
+      "note": "Deploys a Laravel app.",
+      "categories": [
+        "webserver"
+      ],
+      "platform": "linux",
+      "logo": "",
+      "env": [
+        {
+          "name": "APP_DOMAIN",
+          "label": "Domain",
+          "description": "App domain"
+        },
+        {
+          "name": "APP_NAME",
+          "label": "App name",
+          "description": "App name"
+        },
+        {
+          "name": "APP_ENV",
+          "label": "Debug mode",
+          "description": "Debug mode",
+          "select": [
+            {
+              "text": "Local",
+              "value": "local",
+              "default": true
+            },
+            {
+              "text": "Production",
+              "value": "production"
+            }
+          ]
+        },
+        {
+          "name": "DB_DATABASE",
+          "label": "Database name",
+          "description": "Database name"
+        },
+        {
+          "name": "DB_USERNAME",
+          "label": "Database user",
+          "description": "Database user"
+        },
+        {
+          "name": "DB_PASSWORD",
+          "label": "Database pass",
+          "description": "Database pass"
+        },
+        {
+          "name": "DB_CONNECTION",
+          "label": "Database type",
+          "description": "Database type",
+          "default": "mysql"
+        },
+        {
+          "name": "DB_HOST",
+          "label": "Database host",
+          "description": "Database host",
+          "default": "database"
+        },
+        {
+          "name": "DB_PORT",
+          "label": "Database port",
+          "description": "Database port",
+          "default": 3306
+        },
+        {
+          "name": "APP_DEBUG",
+          "label": "Debug mode",
+          "description": "Debug mode",
+          "select": [
+            {
+              "text": "Enabled",
+              "value": "true",
+              "default": true
+            },
+            {
+              "text": "Disabled",
+              "value": "false"
+            }
+          ]
+        },
+        {
+          "name": "APP_URL",
+          "label": "App URL",
+          "description": "App URL",
+          "preset": true,
+          "default": "https://${APP_DOMAIN}"
+        }
+      ],
+      "repository": {
+        "url": "https://github.com/aictur/portainer-templates.git",
+        "stackfile": "stacks/laravel/docker-stack.yml"
       }
-    ],
-    "repository": {
-      "url": "https://github.com/aictur/portainer-templates.git",
-      "stackfile": "stacks/laravel/docker-stack.yml"
     }
-  }
-]
+  ]
+}
