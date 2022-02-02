@@ -1,0 +1,19 @@
+version: '3.5'
+services:
+  database:
+    image: 'mysql:8.0'
+    environment:
+      MYSQL_ROOT_PASSWORD: '${DB_PASSWORD}'
+      MYSQL_DATABASE: '${DB_DATABASE}'
+      MYSQL_USER: '${DB_USERNAME}'
+      MYSQL_PASSWORD: '${DB_PASSWORD}'
+      MYSQL_ALLOW_EMPTY_PASSWORD: 'yes'
+    volumes:
+      - /home/ubuntu/files/databases/${APP_DOMAIN}:/var/lib/mysql
+    healthcheck:
+      test: ["CMD", "mysqladmin", "ping"]
+  nginx:
+    image: nginx:alpine
+    restart: unless-stopped
+    volumes:
+      - /home/ubuntu/files/websites/${APP_DOMAIN}:/var/www/html
